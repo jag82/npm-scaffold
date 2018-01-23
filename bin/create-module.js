@@ -44,6 +44,19 @@ echo '
 #add dependencies
 npm i --save-dev tape tape-catch tap-notify faucet chokidar-cmd
 
+#README
+echo "
+#$NAME
+
+description
+
+##Quick Start
+
+```
+```
+
+" > README.md
+
 #entrypoint
 echo "
 function $NAME_CAPITALIZED() {
@@ -88,5 +101,18 @@ test('can be instantiated', function(t){
 });
 " > $NAME.tests.js
 
+cd ..
+
 #run tests
 npm run test
+
+#git
+echo "
+node_modules/
+npm-debug.log
+" > .gitignore
+
+git init
+git remote add origin "https://git@github.com/jag82/$NAME"
+git remote -v
+git status
