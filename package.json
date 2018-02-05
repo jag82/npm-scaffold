@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Quickly create npm modules via the command line in my preferred style.",
   "bin": {
-    "npm-scaffold": "bin/create-module.js"
+    "npm-scaffold": "./bin/create-module.sh"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

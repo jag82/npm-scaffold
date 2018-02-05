@@ -1,5 +1,11 @@
+#!/usr/bin/env bash
+
 NAME=$1
 NAME_CAPITALIZED=$(echo $NAME | sed 's/.*/\u&/')
+
+NPM_USERNAME='jag82'
+GITHUB_USERNAME='jag82'
+FULL_NAME='Jag Chadha'
 
 if [[ -z $NAME ]]
 then
@@ -18,7 +24,7 @@ cd $NAME
 
 echo '
 {
-  "name": "@jag82/'"$NAME"'",
+  "name": "@'"$NPM_USERNAME"'/'"$NAME"'",
   "version": "1.0.0",
   "description": "",
   "main": "'"$NAME"'.js",
@@ -28,16 +34,16 @@ echo '
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jag82/'"$NAME"'.git"
+    "url": "git+https://github.com/'"$GITHUB_USERNAME"'/'"$NAME"'.git"
   },
   "keywords": [
   ],
-  "author": "Jag Chadha",
+  "author": "'"$FULL_NAME"'",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jag82/'"$NAME"'/issues"
+    "url": "https://github.com/'"$GITHUB_USERNAME"'/'"$NAME"'/issues"
   },
-  "homepage": "https://github.com/jag82/'"$NAME"'#readme"
+  "homepage": "https://github.com/'"$GITHUB_USERNAME"'/'"$NAME"'#readme"
 }
 ' > package.json
 
@@ -45,17 +51,23 @@ echo '
 npm i --save-dev tape tape-catch tap-notify faucet chokidar-cmd
 
 #README
-echo "
-#$NAME
+echo '
+# '"$NAME"'
 
 description
 
-##Quick Start
+## Installation
+```
+npm i --save @'"$NPM_USERNAME"'/'"$NAME"'
+```
+
+## Usage
+```
 
 ```
-```
 
-" > README.md
+
+' > README.md
 
 #entrypoint
 echo "
@@ -113,6 +125,6 @@ npm-debug.log
 " > .gitignore
 
 git init
-git remote add origin "https://git@github.com/jag82/$NAME"
+git remote add origin "https://'"$GITHUB_USERNAME"'@github.com/'"$GITHUB_USERNAME"'/$NAME"
 git remote -v
 git status
