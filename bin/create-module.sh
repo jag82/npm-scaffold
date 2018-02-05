@@ -29,7 +29,7 @@ echo '
   "description": "",
   "main": "'"$NAME"'.js",
   "scripts": {
-    "test": "tape tests/**/*.tests.js | tap-notify | faucet || true",
+    "test": "nyc tape tests/**/*.tests.js | tap-notify | tap-nyc || true",
     "test-watch": "chokidar-cmd -t **/*.js -t *.js -c \"npm run test\""
   },
   "repository": {
@@ -48,7 +48,7 @@ echo '
 ' > package.json
 
 #add dependencies
-npm i --save-dev tape tape-catch tap-notify faucet chokidar-cmd
+npm i --save-dev tape tape-catch tap-notify tap-nyc chokidar-cmd
 
 #README
 echo '
